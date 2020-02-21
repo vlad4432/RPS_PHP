@@ -7,7 +7,7 @@ class model{
 	public static function getLoginUser(){
 		if(isset($_SESSION['sessionId'])){
 			$logIn = true;
-                        echo $logIn;
+                        //echo $logIn;
 		}
 		else{
 			$logIn = false;
@@ -102,6 +102,16 @@ class model{
            return $result;
             //print_r($result);
         }
+        public static function getOneStatus($login){
+            $sql = "SELECT status.NameStatus FROM `status` INNER JOIN `user` on status.idStatus = user.idStatus WHERE user.Login = '$login'";
+            $db = new db();
+           // $item = $db->executeRun($sql);
+           $result = $db->getOne($sql);
+           echo $sql;
+           return $result;
+            //print_r($result);
+        }
+        
 	
 	
 	

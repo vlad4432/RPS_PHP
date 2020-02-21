@@ -43,8 +43,13 @@ class Controller{
 	
 	public function LoginUser(){
 		$logIn = model::getLoginUser(); 
+                $status = model::getOneStatus($logIn);
+               // echo $status;
+                $_SESSION['Status'] = $status;
+               // echo '<pre>';
+                //print_r($_SESSION);
+               // echo '</pre>';
                // echo $login.'Работает';
-              
 		if($logIn == 'Admin'){
 			include_once 'View/StartPupil.php';
 		}else{

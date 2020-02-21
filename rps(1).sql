@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Время создания: Дек 17 2019 г., 08:58
--- Версия сервера: 10.1.38-MariaDB
--- Версия PHP: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: Feb 21, 2020 at 09:39 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `rps`
+-- Database: `rps`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `assessment`
+-- Table structure for table `assessment`
 --
 
 CREATE TABLE `assessment` (
@@ -41,7 +41,7 @@ CREATE TABLE `assessment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `groups`
+-- Table structure for table `groups`
 --
 
 CREATE TABLE `groups` (
@@ -54,7 +54,7 @@ CREATE TABLE `groups` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `pupil`
+-- Table structure for table `pupil`
 --
 
 CREATE TABLE `pupil` (
@@ -66,7 +66,7 @@ CREATE TABLE `pupil` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `status`
+-- Table structure for table `status`
 --
 
 CREATE TABLE `status` (
@@ -74,10 +74,19 @@ CREATE TABLE `status` (
   `NameStatus` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`idStatus`, `NameStatus`) VALUES
+(1, 'Admin'),
+(2, 'Teather'),
+(3, 'Pupil');
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `subjects`
+-- Table structure for table `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -90,7 +99,7 @@ CREATE TABLE `subjects` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `teather`
+-- Table structure for table `teather`
 --
 
 CREATE TABLE `teather` (
@@ -103,7 +112,7 @@ CREATE TABLE `teather` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `themes`
+-- Table structure for table `themes`
 --
 
 CREATE TABLE `themes` (
@@ -117,7 +126,7 @@ CREATE TABLE `themes` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `type_assessment`
+-- Table structure for table `type_assessment`
 --
 
 CREATE TABLE `type_assessment` (
@@ -128,7 +137,7 @@ CREATE TABLE `type_assessment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -138,18 +147,27 @@ CREATE TABLE `user` (
   `GenderU` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `TelephoneU` int(5) NOT NULL,
   `E-psotU` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `E-psot2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Pass` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   `RPG_experience` int(5) NOT NULL,
   `idStatus` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Индексы сохранённых таблиц
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`idUser`, `NameU`, `SurnameU`, `GenderU`, `TelephoneU`, `E-psotU`, `Login`, `Pass`, `RPG_experience`, `idStatus`) VALUES
+(29, 'Vlad', '', '', 0, 'maljushitskivlad@gmail.com', 'vladosik', '$2y$10$vPgsczX2pWEb/aXZrQo/5.DiwBky', 0, 1),
+(30, 'Proverka', '', '', 0, 'maljushitskivlad@gmail.com', 'Proverka', '$2y$10$qeIR9piGo49XBhjU3iWGIOkIQtl3', 0, 1),
+(37, 'Admin', '', '', 0, 'maljushitskivlad@gmail.com', 'Admin', '$2y$10$GiFXYLxhzyrI6CeIKiN9Qu47cdhz', 0, 1);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `assessment`
+-- Indexes for table `assessment`
 --
 ALTER TABLE `assessment`
   ADD PRIMARY KEY (`idAssessment`),
@@ -158,7 +176,7 @@ ALTER TABLE `assessment`
   ADD KEY `idTypeAssessment` (`idTypeAssessment`);
 
 --
--- Индексы таблицы `groups`
+-- Indexes for table `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`idGroup`),
@@ -166,116 +184,116 @@ ALTER TABLE `groups`
   ADD KEY `idSubject` (`idSubject`);
 
 --
--- Индексы таблицы `pupil`
+-- Indexes for table `pupil`
 --
 ALTER TABLE `pupil`
   ADD PRIMARY KEY (`idPupil`),
   ADD KEY `idStatus` (`idStatus`);
 
 --
--- Индексы таблицы `status`
+-- Indexes for table `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`idStatus`);
 
 --
--- Индексы таблицы `subjects`
+-- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`idSubject`),
   ADD KEY `idTeather` (`idTeather`);
 
 --
--- Индексы таблицы `teather`
+-- Indexes for table `teather`
 --
 ALTER TABLE `teather`
   ADD PRIMARY KEY (`idTeather`),
   ADD KEY `idStatus` (`idStatus`);
 
 --
--- Индексы таблицы `themes`
+-- Indexes for table `themes`
 --
 ALTER TABLE `themes`
   ADD PRIMARY KEY (`idthemes`),
   ADD KEY `idSubject` (`idSubject`);
 
 --
--- Индексы таблицы `type_assessment`
+-- Indexes for table `type_assessment`
 --
 ALTER TABLE `type_assessment`
   ADD PRIMARY KEY (`idtypeassessment`);
 
 --
--- Индексы таблицы `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`),
   ADD KEY `idStatus` (`idStatus`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `assessment`
+-- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
   MODIFY `idAssessment` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `groups`
+-- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `idGroup` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `pupil`
+-- AUTO_INCREMENT for table `pupil`
 --
 ALTER TABLE `pupil`
   MODIFY `idPupil` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `status`
+-- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
-  MODIFY `idStatus` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `idStatus` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT для таблицы `subjects`
+-- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
   MODIFY `idSubject` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `teather`
+-- AUTO_INCREMENT for table `teather`
 --
 ALTER TABLE `teather`
   MODIFY `idTeather` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `themes`
+-- AUTO_INCREMENT for table `themes`
 --
 ALTER TABLE `themes`
   MODIFY `idthemes` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `type_assessment`
+-- AUTO_INCREMENT for table `type_assessment`
 --
 ALTER TABLE `type_assessment`
   MODIFY `idtypeassessment` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUser` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `assessment`
+-- Constraints for table `assessment`
 --
 ALTER TABLE `assessment`
   ADD CONSTRAINT `assessment_ibfk_1` FOREIGN KEY (`idSubject`) REFERENCES `subjects` (`idSubject`),
@@ -283,38 +301,38 @@ ALTER TABLE `assessment`
   ADD CONSTRAINT `assessment_ibfk_3` FOREIGN KEY (`idTypeAssessment`) REFERENCES `type_assessment` (`idtypeassessment`);
 
 --
--- Ограничения внешнего ключа таблицы `groups`
+-- Constraints for table `groups`
 --
 ALTER TABLE `groups`
   ADD CONSTRAINT `groups_ibfk_1` FOREIGN KEY (`idPupil`) REFERENCES `pupil` (`idPupil`);
 
 --
--- Ограничения внешнего ключа таблицы `pupil`
+-- Constraints for table `pupil`
 --
 ALTER TABLE `pupil`
   ADD CONSTRAINT `pupil_ibfk_1` FOREIGN KEY (`idStatus`) REFERENCES `status` (`idStatus`);
 
 --
--- Ограничения внешнего ключа таблицы `subjects`
+-- Constraints for table `subjects`
 --
 ALTER TABLE `subjects`
   ADD CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`idSubject`) REFERENCES `groups` (`idSubject`),
   ADD CONSTRAINT `subjects_ibfk_2` FOREIGN KEY (`idTeather`) REFERENCES `teather` (`idTeather`);
 
 --
--- Ограничения внешнего ключа таблицы `teather`
+-- Constraints for table `teather`
 --
 ALTER TABLE `teather`
   ADD CONSTRAINT `teather_ibfk_1` FOREIGN KEY (`idStatus`) REFERENCES `status` (`idStatus`);
 
 --
--- Ограничения внешнего ключа таблицы `themes`
+-- Constraints for table `themes`
 --
 ALTER TABLE `themes`
   ADD CONSTRAINT `themes_ibfk_1` FOREIGN KEY (`idSubject`) REFERENCES `subjects` (`idSubject`);
 
 --
--- Ограничения внешнего ключа таблицы `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`idStatus`) REFERENCES `status` (`idStatus`);
