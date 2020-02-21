@@ -85,10 +85,12 @@ class model{
 
 	}
         public static function getSelectStatus(){
-            $sql = "SELECT * FROM `status` WHERE NameStatus = '$nameStatus'";
+            $sql = "SELECT * FROM `status`";
             $db = new db();
            // $item = $db->executeRun($sql);
-            $result = $db->getAll($query);
+           $result = $db->getAll($sql);
+           return $result;
+            //print_r($result);
         }
 	
 	

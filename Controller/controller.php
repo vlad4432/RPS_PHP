@@ -43,14 +43,13 @@ class Controller{
 	
 	public function LoginUser(){
 		$login = model::getLoginUser(); 
+                //echo $login;
 		if($login == true){
 			include_once 'View/StartPupil.php';
 		}else{
 			$_SESSION['errorString']= 'Неправельно емаил пользователя или пароль';
 			include_once "View/Error.php";
-
 		}
-		
 	}
 	
 	

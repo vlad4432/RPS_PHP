@@ -17,10 +17,15 @@ ob_start();
                         </select>
                         <input type="text" name="Telephone" placeholder="Введите ваш телефон" title="">
 			<input type='email' name='email' placeholder='Введите вашу почту' title="Тут должна быть строго только почта">
+                        <?php
+                        $result = model::getSelectStatus();
+                       // print_r($result);
+                        ?>
                         <select name="StatusSelect" title="Выбери статус">
                             <option>Не выбранно</option>
                             <?php 
-                            $result = model::getSelectStatus();
+                            echo '<option>Что то есть!</option>';
+                            //print_r($result);
                             foreach ($result as $res){
                                 echo '<option>'.$res['NameStatus'].'</option>';
                             }
