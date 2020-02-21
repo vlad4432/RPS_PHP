@@ -1,16 +1,16 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="Public/style.css">
-</head>
-<body>
+<?php
+ob_start();
+?>
 
-<header><h1 class='heading'>Школа ролевых игр!</h1></header>
-	<div>
-	<?php
-	echo 'Ваша страница';
-	?>
-	</div>
-<footer>Подвал</footer>
+<?php 
+echo 'Ваша страница';
+?>
 
-</body>
-</html>
+
+
+
+<?php
+$content=ob_get_clean();
+
+include_once 'View/Templates/layout.php';
+?>

@@ -9,7 +9,7 @@ ob_start();
 </div>
 <form action='login' method='POST'>
 	<h1 class='heading'>Вход!</h1>
-        <input type='text' name='username' placeholder='Логин' title="Введите ваш логин"><br>
+        <input type='text' name='login' placeholder='Логин' title="Введите ваш логин"><br>
 	<input type='password' name='password' placeholder='Пароль' title="Введите ваш пароль"><br> 
 	<input type='submit' name='send' value='Войти' class='ButtonLogin'title="Нажмите что бы войти"><br>
 	<a href='register_page' title="Нажмите что бы зарегистрироваться">Регистрация</a><br>

@@ -7,20 +7,28 @@ class model{
 	public static function getLoginUser(){
 		if(isset($_SESSION['sessionId'])){
 			$logIn = true;
+                        echo $logIn;
 		}
 		else{
 			$logIn = false;
 			if(isset($_POST['send'])){
-				if(isset($_POST['email']) && isset($_POST['password']) && $_POST['email']!="" && $_POST['password']!=""){
+                            echo 'Есть!';
+                            //print_r($_POST);
+				if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username']!="" && $_POST['password']!=""){
+                                    echo 'и тут есть!';
+                                        $logIn = filter_input(INPUT_POST, 'username');
 					$email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
 					$password = filter_input(INPUT_POST, 'password');
-					$sql = 'SELECT * FROM `user` WHERE `email` = "'.$email.'"';
-					$db = new database();
+					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$logIn.'"';
+					$db = new db();
 					$item = $db->getOne($sql);
+                                       // echo '<pre>';
+                                        //print_r($item);
+                                        //echo '</pre>';
 					if($item!=null){
-						$loginEmail = strtolower($_POST['email']);
+						$loginUsername = strtolower($_POST['username']);
 						$password = $_POST['password'];
-						if($loginEmail = $item['email'] && password_verify($password, $item['password'])){
+						if($loginUsername = $item['Login'] && password_verify($password, $item['Pass'])){
 							$_SESSION['sessionId'] = session_id();
 							$_SESSION['userId'] = $item['id'];
 							$_SESSION['name'] = $item['username'];
@@ -28,11 +36,13 @@ class model{
 						}
 					}
 				}
-                                include_once 'View/answerRegister.php';
+                                //include_once 'View/answerRegister.php';
 			}
 		}
 		//!!!!!
+                //echo $logIn;
 		return $logIn;
+                
 	}
 	
 	

@@ -42,9 +42,10 @@ class Controller{
 	}
 	
 	public function LoginUser(){
-		$login = model::getLoginUser(); 
-                //echo $login;
-		if($login == true){
+		$logIn = model::getLoginUser(); 
+               // echo $login.'Работает';
+              
+		if($logIn == 'Admin'){
 			include_once 'View/StartPupil.php';
 		}else{
 			$_SESSION['errorString']= 'Неправельно емаил пользователя или пароль';
