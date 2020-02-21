@@ -46,6 +46,7 @@ class Controller{
                 $status = model::getOneStatus($logIn);
                // echo $status;
                 $_SESSION['Status'] = $status;
+                $_SESSION['NameP'] = $logIn;
                // echo '<pre>';
                 //print_r($_SESSION);
                // echo '</pre>';

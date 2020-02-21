@@ -5,7 +5,11 @@ class model{
 	//login read form data, query in database, control data
 	//$test-true - ok login, false --no login
 	public static function getLoginUser(){
+               echo '<pre>';
+               print_r($_SESSION);
+               echo '</pre>';
 		if(isset($_SESSION['sessionId'])){
+                    
 			$logIn = true;
                         //echo $logIn;
 		}
@@ -15,16 +19,19 @@ class model{
                             echo 'Есть!';
                             //print_r($_POST);
 				if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username']!="" && $_POST['password']!=""){
-                                    echo 'и тут есть!';
+                                    
+                                       // echo '<pre>';
+                                        //print_r($_POST);
+                                        //echo '</pre>';
                                         $logIn = filter_input(INPUT_POST, 'username');
 					$email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
 					$password = filter_input(INPUT_POST, 'password');
 					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$logIn.'"';
 					$db = new db();
 					$item = $db->getOne($sql);
-                                       // echo '<pre>';
+                                        //echo '<pre>';
                                         //print_r($item);
-                                        //echo '</pre>';
+                                       // echo '</pre>';
 					if($item!=null){
 						$loginUsername = strtolower($_POST['username']);
 						$password = $_POST['password'];
@@ -33,6 +40,9 @@ class model{
 							$_SESSION['userId'] = $item['id'];
 							$_SESSION['name'] = $item['username'];
 							$_SESSION['status'] = $item['status'];
+                                                        echo '<pre>';
+                                                        print_r($_SESSION);
+                                                        echo '</pre>';
 						}
 					}
 				}
@@ -107,7 +117,7 @@ class model{
             $db = new db();
            // $item = $db->executeRun($sql);
            $result = $db->getOne($sql);
-           echo $sql;
+           //echo $sql;
            return $result;
             //print_r($result);
         }
