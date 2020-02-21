@@ -1,0 +1,23 @@
+
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="Public/style.css">
+
+</head>
+<body>
+
+<header><h1 class='heading'>Школа ролевых игр!</h1></header>
+	<div>
+	<?php
+	if(isset($content)){
+		echo $content;
+	}
+	
+	?>
+	</div>
+<footer id="footer">Подвал</footer>
+
+</body>
+</html>

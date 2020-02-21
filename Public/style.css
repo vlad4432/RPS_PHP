@@ -1,0 +1,285 @@
+body
+{
+	font-family: Open Sans, sans-serif;
+	margin:0px;
+}
+header{
+	text-align:center;
+	width:100%;
+	height:100px;
+	border:1px solid black;
+	background-color:#AB978E;
+}
+form{
+	text-align:center;
+	width:30%;/*300px*/
+	height:auto;/*210px*/
+	border:1px solid purple;
+	margin-left:35%;
+	margin-top:6%;
+	background-color:#CFC4BF;
+}
+
+.ContentAboutSchool{
+	background-color:#CFC4BF;
+	border:1px solid black;
+	width:50%;/*300px*/
+	height:auto;
+	margin-left:25%;
+	text-align:center;
+	margin-top:0.4%;
+	clear:bold;
+}
+
+.heading{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 42px;
+text-decoration-line: underline;
+text-transform: uppercase;
+}
+.heading1{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 17px;
+line-height: 13px;
+text-decoration-line: underline;
+text-transform: uppercase;
+
+color: #7C6154;
+}
+input{
+width:35%;
+height:3%;
+margin-top:0.5%;
+
+background: #FEF3EB;
+border: 1px solid #AB978E;
+box-sizing: border-box;
+}
+select{
+    width:35%;
+height:3%;
+margin-top:0.5%;
+background: #FEF3EB;
+border: 1px solid #AB978E;
+box-sizing: border-box;
+}
+.ButtonLogin{
+margin-top:2%;
+width:17%;
+height:3%;	
+}
+.back{
+	font-family: Roboto;
+font-size: 20px;
+color: #636262;
+}
+a{
+text-align:center;
+font-family: Roboto;
+font-size: 26px;
+color: #636262;
+padding-top:0.3%;
+padding-left:0.7%;
+padding-right:0.7%;
+padding-bottom:0.5%;
+
+
+
+}
+.div_left{
+	margin-top:0.5%;
+	width:45%;
+	float:left;
+	margin-left:2%;
+	background: #D1BEAF;
+border: 1px solid #000000;
+	
+}
+.div_right{
+	margin-top:0.5%;
+	width:45%;
+	float:left;
+	margin-left:6%;
+	background: #D1BEAF;
+border: 1px solid #000000;	
+}
+.div_center{
+	margin-top:0.5%;
+	width:96%;
+	margin-left:2%;
+	background: #D1BEAF;
+border: 1px solid #000000;
+}
+footer{
+	clear:both;
+}
+.button_login{
+	text-align:center;
+	padding-top:0.5%;
+	margin-top:5%;
+	font-size:1.5em;
+	width:6%;
+	height:40px;
+	margin-left:47%;
+	margin-bottom:0.3%;
+	border:1px solid black;
+}
+.button_login{
+	background:#CFC4BF;
+}
+.back_p{
+	margin-top:-9px;
+}
+.register_form{
+	margin-top:0px;
+}
+.icons{
+	border:1px solid black;
+	margin-top:2%;
+	width:30%;/*170*/
+	height:150px;/*150*/
+}
+.icons_Home{
+	border:1px solid black;
+	width:20%;
+	height:;
+	margin-top:2%;
+}
+.Teathers{
+		background-color:#CFC4BF;
+	border:1px solid black;
+	width:50%;/*300px*/
+	margin-left:25%;
+	text-align:center;
+	margin-top:0.4%;
+	clear:bold;
+}
+
+/*Главный блок*/
+.container_block{
+	border:1px solid black; 
+	width:85%;
+	margin-left:7%; 
+}
+
+/*блок с картинкой и двумя блоками текста*/
+.container_block_img_text{
+	margin-top:1%;
+	margin-bottom:1%;
+	border:1px solid red;
+	width:85%;
+	margin-left:7%;
+	height:440px;
+}
+.container_block_Teather_text{
+	margin-top:1%;
+	margin-bottom:1%;
+	border:1px solid red;
+	width:85%;
+	margin-left:7%;
+	height:440px;
+}
+/*текст1*/
+.text_1{
+	border:1px solid purple;
+	width:40%;
+	float:left;
+	height:250px;
+	margin-left:1.3%;
+	overflow: scroll;
+}
+/*фото*/
+.foto_picture{
+	border:1px solid purple;
+	width:15%;
+	height:250px;
+	float:left;
+	margin-left:1%;
+}
+.text_2{
+	border:1px solid purple;
+	width:40%; 
+	float:left;
+	height:250px;
+	margin-left:1%;
+	overflow: scroll;
+
+}
+.name_teather{
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 14px;
+text-decoration-line: underline;
+text-transform: uppercase;
+color: #7C6154;
+}
+.data_teather{
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 14px;
+text-decoration-line: underline;
+text-transform: uppercase;
+color: #7C6154;
+}
+.about_teather{
+	border:1px solid purple;
+	width:40%;
+	float:left;
+	height:250px;
+	margin-left:1%;
+	overflow: scroll;
+}
+p{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 26px;
+color: #000000;
+}
+ul li{
+display: inline;
+border:1px solid black; 
+margin-left:4%;
+margin-top:2%;
+}
+.box_gen{
+    width:3%;
+    
+}
+
+h1{
+	text-align:center;
+}
+.block_slogan{
+    background-color:#AB978E;
+    border:1px solid black; 
+    width:50%; 
+    height:100px;
+    margin-left:25%; 
+    padding-left:3%;
+    padding-right:3%;
+    margin-top:2%;
+}
+#footer{
+     text-align:center;
+	width:100%;
+	height:100px;
+	border:1px solid black;
+	background-color:#AB978E;
+}
+footer{
+    
+    position:absolute;
+    bottom:0;
+    width:100%;
+
+}
