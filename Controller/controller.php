@@ -67,6 +67,7 @@ class Controller{
 		$register_result=model::getRegister_result();
                 //print_r($register_result);
 		if($register_result[0]== 1){
+                    //echo $register_result[0];
 		include_once 'View/answerRegister.php';//ok register
 		}else{
 			include_once 'View/ErrorRegisterPage.php';//false register

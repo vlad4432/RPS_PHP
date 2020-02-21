@@ -38,13 +38,14 @@ class model{
 	
 	//register -  read form date, write in databse
 		public static function getRegister_result(){
+                    //echo 'Тут!';
 		$controll=array(0=>false, 1=>'error');
 		if(isset($_POST['save'])){//Сохранение
                    
 			$errorString = "";
 			$nameuser = $_POST['login'];//поле Логин
 			$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-                         echo 'Работает';
+                         //echo 'Работает';
 			if(!$email){
 				$errorString.="Неправильный email<br />";
 			}//Проверка поля почты
@@ -57,15 +58,15 @@ class model{
 				$errorString.="Пароли не совпадают!";
 			}//поле пароль
                         $name = $_POST['NameP'];//Имя человека
-                        echo ' хм.... ';
+                        //echo ' хм.... ';
 			if(!mb_strlen($errorString)==0){
 				$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				//$sql="INSERT INTO `user` ('idUser','NameU', 'E-psotU', 'Pass') VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$password')";
                                 $sql="INSERT INTO `user` (idUser,NameU,`E-psotU`,Pass, Login, idStatus) VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '1')";
-				echo $sql;
+				//echo $sql;
                                 $db = new db();
 				$item = $db->executeRun($sql);
-                                echo '<br>Ну такое'.$item;
+                               // echo '<br>Ну такое'.$item;
 					if($item){
                                             
 						$controll = array(0=>true);
