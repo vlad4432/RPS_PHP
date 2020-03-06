@@ -5,33 +5,31 @@ class model{
 	//login read form data, query in database, control data
 	//$test-true - ok login, false --no login
 	public static function getLoginUser(){
-               echo '<pre>';
-               print_r($_SESSION);
-               echo '</pre>';
 		if(isset($_SESSION['sessionId'])){
-                    
 			$logIn = true;
-                        //echo $logIn;
+                        echo $logIn;
 		}
 		else{
 			$logIn = false;
 			if(isset($_POST['send'])){
                             echo 'Есть!';
-                            //print_r($_POST);
-				if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username']!="" && $_POST['password']!=""){
-                                    
-                                       // echo '<pre>';
-                                        //print_r($_POST);
-                                        //echo '</pre>';
-                                        $logIn = filter_input(INPUT_POST, 'username');
+//                            echo '<pre>';
+//                            print_r($_POST);
+//                            echo $_POST['username'];
+//                            echo $_POST['password']
+//                            echo '</pre>';
+				if(isset($_POST['login']) && isset($_POST['password']) && $_POST['login']!="" && $_POST['password']!=""){
+                                    echo 'и тут есть!';
+                                        $logIn = filter_input(INPUT_POST, 'login');
 					$email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
 					$password = filter_input(INPUT_POST, 'password');
 					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$logIn.'"';
+                                        echo $sql;
 					$db = new db();
 					$item = $db->getOne($sql);
-                                        //echo '<pre>';
+                                       // echo '<pre>';
                                         //print_r($item);
-                                       // echo '</pre>';
+                                        //echo '</pre>';
 					if($item!=null){
 						$loginUsername = strtolower($_POST['username']);
 						$password = $_POST['password'];
@@ -40,9 +38,6 @@ class model{
 							$_SESSION['userId'] = $item['id'];
 							$_SESSION['name'] = $item['username'];
 							$_SESSION['status'] = $item['status'];
-                                                        echo '<pre>';
-                                                        print_r($_SESSION);
-                                                        echo '</pre>';
 						}
 					}
 				}
@@ -112,16 +107,6 @@ class model{
            return $result;
             //print_r($result);
         }
-        public static function getOneStatus($login){
-            $sql = "SELECT status.NameStatus FROM `status` INNER JOIN `user` on status.idStatus = user.idStatus WHERE user.Login = '$login'";
-            $db = new db();
-           // $item = $db->executeRun($sql);
-           $result = $db->getOne($sql);
-           //echo $sql;
-           return $result;
-            //print_r($result);
-        }
-        
 	
 	
 	

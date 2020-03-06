@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2020 at 09:39 AM
+-- Generation Time: Mar 06, 2020 at 11:29 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -142,6 +142,7 @@ CREATE TABLE `type_assessment` (
 
 CREATE TABLE `user` (
   `idUser` int(5) NOT NULL,
+  `Photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `NameU` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `SurnameU` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `GenderU` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -157,10 +158,11 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`idUser`, `NameU`, `SurnameU`, `GenderU`, `TelephoneU`, `E-psotU`, `Login`, `Pass`, `RPG_experience`, `idStatus`) VALUES
-(29, 'Vlad', '', '', 0, 'maljushitskivlad@gmail.com', 'vladosik', '$2y$10$vPgsczX2pWEb/aXZrQo/5.DiwBky', 0, 1),
-(30, 'Proverka', '', '', 0, 'maljushitskivlad@gmail.com', 'Proverka', '$2y$10$qeIR9piGo49XBhjU3iWGIOkIQtl3', 0, 1),
-(37, 'Admin', '', '', 0, 'maljushitskivlad@gmail.com', 'Admin', '$2y$10$GiFXYLxhzyrI6CeIKiN9Qu47cdhz', 0, 1);
+INSERT INTO `user` (`idUser`, `Photo`, `NameU`, `SurnameU`, `GenderU`, `TelephoneU`, `E-psotU`, `Login`, `Pass`, `RPG_experience`, `idStatus`) VALUES
+(29, '', 'Vlad', '', '', 0, 'maljushitskivlad@gmail.com', 'vladosik', '$2y$10$vPgsczX2pWEb/aXZrQo/5.DiwBky', 0, 1),
+(30, '', 'Proverka', '', '', 0, 'maljushitskivlad@gmail.com', 'Proverka', '$2y$10$qeIR9piGo49XBhjU3iWGIOkIQtl3', 0, 1),
+(37, '', 'Admin', '', '', 0, 'maljushitskivlad@gmail.com', 'Admin', '$2y$10$GiFXYLxhzyrI6CeIKiN9Qu47cdhz', 0, 1),
+(38, '', 'Lol', '', '', 0, 'maljushitskivlad@gmail.com', 'lol', '$2y$10$kNqlZYRH7jvsag4iv/uOouHruGD/', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -286,7 +288,7 @@ ALTER TABLE `type_assessment`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idUser` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables

@@ -43,19 +43,15 @@ class Controller{
 	
 	public function LoginUser(){
 		$logIn = model::getLoginUser(); 
-                $status = model::getOneStatus($logIn);
-               // echo $status;
-                $_SESSION['Status'] = $status;
-                $_SESSION['NameP'] = $logIn;
-               // echo '<pre>';
-                //print_r($_SESSION);
-               // echo '</pre>';
                // echo $login.'Работает';
+               echo 'nenekf'.$logIn;
 		if($logIn == 'Admin'){
 			include_once 'View/StartPupil.php';
 		}else{
-			$_SESSION['errorString']= 'Неправельно емаил пользователя или пароль';
-			include_once "View/Error.php";
+			$_SESSION['errorString']= 'Неправельно введен пользователя или пароль!';
+                        echo $_SESSION['errorString'];
+                        header("Location: index.php");
+                        exit;
 		}
 	}
 	
