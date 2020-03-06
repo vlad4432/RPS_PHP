@@ -58,6 +58,9 @@ class db {
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $response = $stmt->fetch();
+        echo '<pre>';
+        print_r($response);
+        echo '</pre>';
         return $response;
     }
 

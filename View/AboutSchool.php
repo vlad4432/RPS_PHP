@@ -16,7 +16,6 @@ ob_start();
 		?>
 	</div>
 	<div style=' border:1px solid red; width:95%; margin-left:2.5%; margin-top:2%;'>
-	<h2>Контент</h2>
 	<?php 
 	if(isset($content_About)){
 		echo $content_About;

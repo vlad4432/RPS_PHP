@@ -269,6 +269,9 @@ h1{
     padding-right:3%;
     margin-top:2%;
 }
+.error_register{
+    border:1px solid black;
+}
 #footer{
      text-align:center;
 	width:100%;

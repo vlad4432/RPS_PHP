@@ -9,7 +9,6 @@ ob_start();
 <img src='Public/images/error_3.png' width=400px;>
 
 
-
 <?php
 $content=ob_get_clean();
 include_once 'View/AboutSchool.php';

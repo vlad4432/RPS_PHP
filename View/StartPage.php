@@ -16,6 +16,18 @@ ob_start();
 	<a href='schoolAbout' title="Нажмите что бы почиать о нас">О школе</a><br>
 </form>
 <?php
+if (isset($errorLogin)){
+    $a = $errorLogin;
+    if(!$errorLogin=''){
+    echo '<div>';
+    echo '<p>'.$a.'</p>';
+   // var_dump($errorLogin);
+    echo '</div>';   
+
+    }
+}
+
+
 $content=ob_get_clean();
 ?>
 <?php 

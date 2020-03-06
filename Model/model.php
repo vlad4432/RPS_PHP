@@ -7,36 +7,36 @@ class model{
 	public static function getLoginUser(){
 		if(isset($_SESSION['sessionId'])){
 			$logIn = true;
-                        echo $logIn;
+                        //echo $logIn;
 		}
 		else{
 			$logIn = false;
 			if(isset($_POST['send'])){
-                            echo 'Есть!';
+                            //echo 'Есть!';
 //                            echo '<pre>';
 //                            print_r($_POST);
 //                            echo $_POST['username'];
 //                            echo $_POST['password']
 //                            echo '</pre>';
 				if(isset($_POST['login']) && isset($_POST['password']) && $_POST['login']!="" && $_POST['password']!=""){
-                                    echo 'и тут есть!';
+                                   // echo 'и тут есть!';
                                         $logIn = filter_input(INPUT_POST, 'login');
 					$email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
 					$password = filter_input(INPUT_POST, 'password');
 					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$logIn.'"';
-                                        echo $sql;
+                                        //echo $sql;
 					$db = new db();
 					$item = $db->getOne($sql);
                                        // echo '<pre>';
                                         //print_r($item);
                                         //echo '</pre>';
 					if($item!=null){
-						$loginUsername = strtolower($_POST['username']);
+						$loginUsername = strtolower($_POST['login']);
 						$password = $_POST['password'];
 						if($loginUsername = $item['Login'] && password_verify($password, $item['Pass'])){
 							$_SESSION['sessionId'] = session_id();
 							$_SESSION['userId'] = $item['id'];
-							$_SESSION['name'] = $item['username'];
+							$_SESSION['name'] = $item['login'];
 							$_SESSION['status'] = $item['status'];
 						}
 					}
@@ -45,13 +45,20 @@ class model{
 			}
 		}
 		//!!!!!
-                //echo $logIn;
+               // echo $logIn;
 		return $logIn;
                 
 	}
-	
-	
-	//register -  read form date, write in databse
+//        public static function getPassUser(){
+//            if(isset($_SESSION['sessionId'])){
+//			$passLogin = true;
+//                        echo $passLogin;
+//		}
+//        }
+
+        
+
+        //register -  read form date, write in databse
 		public static function getRegister_result(){
                     //echo 'Тут!';
 		$controll=array(0=>false, 1=>'error');

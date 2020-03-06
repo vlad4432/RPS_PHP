@@ -43,15 +43,22 @@ class Controller{
 	
 	public function LoginUser(){
 		$logIn = model::getLoginUser(); 
+                echo $logIn;
+//                $pass = model::getPassUser();
+//                echo $pass;
                // echo $login.'Работает';
-               echo 'nenekf'.$logIn;
-		if($logIn == 'Admin'){
+               echo $logIn;
+                if($logIn == 'Admin'){
+		//if(!$logIn == '' && !$pass == ''){
 			include_once 'View/StartPupil.php';
 		}else{
-			$_SESSION['errorString']= 'Неправельно введен пользователя или пароль!';
-                        echo $_SESSION['errorString'];
-                        header("Location: index.php");
-                        exit;
+			$_SESSION['errorString']= 'Неправильно введен пользователя или пароль!';
+                        $content=ob_get_clean();
+                        //$errorLogin = $_SESSION['errorString'];
+                        $errorLogin = 'ошибка авторизации! проверьте логин или пароль!';
+                        include_once 'View/StartPage.php';
+                        //header("Location: index.php");
+                        //exit;
 		}
 	}
 	
