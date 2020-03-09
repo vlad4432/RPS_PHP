@@ -42,13 +42,13 @@ class model{
                                                 //if($loginUsername = $item['Login'] && password_verify($password, $item['Pass'])){
 						if($loginUsername = $item['Login'] && (base64_encode($password) == $item['Pass'])){
                                                     $logIn = true;
-                                                    echo '<pre>';
-                                                    print_r($_SESSION);
-                                                    echo '</pre>';
+                                                   // echo '<pre>';
+                                                    //print_r($item);
+                                                    //echo '</pre>';
 							$_SESSION['sessionId'] = session_id();
-							$_SESSION['userId'] = $item['id'];
-							$_SESSION['name'] = $item['login'];
-							$_SESSION['status'] = $item['status'];
+							$_SESSION['userId'] = $item['idUser'];
+							$_SESSION['name'] = $item['Login'];
+							$_SESSION['status'] = $item['idStatus'];
 						}
                                                   else {
                                                      $logIn = FALSE;
@@ -78,7 +78,11 @@ class model{
                     //echo 'Тут!';
 		$controll=array(0=>false, 1=>'error');
 		if(isset($_POST['save'])){//Сохранение
-                   
+                    
+                    echo '<pre>';
+                    print_r($_POST);
+                    echo '</pre>';
+                    
 			$errorString = "";
 			$nameuser = $_POST['login'];//поле Логин
 			$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -95,6 +99,12 @@ class model{
 				$errorString.="Пароли не совпадают!";
 			}//поле пароль
                         $name = $_POST['NameP'];//Имя человека
+                        $Surename = $_POST['SurenameP'];
+                        $Gender = $_POST['Geander'];
+                        $Telephone = $_POST['Telephone'];
+                        $Email = $_POST['email'];
+                        $XPrp = $_POST['xprp'];
+         
                         //echo ' хм.... ';
 			if(!mb_strlen($errorString)==0){
 				//$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
