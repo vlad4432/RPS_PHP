@@ -272,6 +272,14 @@ h1{
 .error_register{
     border:1px solid black;
 }
+.Error_login{
+background-color:#AB978E;
+    border:1px solid black; 
+     width:50%;  
+   margin-left:25%; 
+ text-align:center;
+    margin-top:2%;
+}
 #footer{
      text-align:center;
 	width:100%;

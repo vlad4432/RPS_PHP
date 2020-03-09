@@ -5,6 +5,9 @@ ob_start();
 <title>Role play basic</title>
 </head>
 <h1>Role play basic</h1>
+<h2>Препадователь предмета:Vlad Maljushitski</h2>
+<h2>Кол-во часов:11</h2>
+<h2>Связь с препадовательем:<a href="https://vk.com/neo221">Вконтакте</a></h2>
 <div>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,

@@ -24,7 +24,6 @@ ob_start();
                         <select name="StatusSelect" title="Выбери статус">
                             <option>Не выбранно</option>
                             <?php 
-                            echo '<option>Что то есть!</option>';
                             //print_r($result);
                             foreach ($result as $res){
                                 echo '<option>'.$res['NameStatus'].'</option>';

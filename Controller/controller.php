@@ -48,14 +48,15 @@ class Controller{
 //                echo $pass;
                // echo $login.'Работает';
                echo $logIn;
-                if($logIn == 'Admin'){
+                if($logIn){
 		//if(!$logIn == '' && !$pass == ''){
 			include_once 'View/StartPupil.php';
 		}else{
 			$_SESSION['errorString']= 'Неправильно введен пользователя или пароль!';
                         $content=ob_get_clean();
                         //$errorLogin = $_SESSION['errorString'];
-                        $errorLogin = 'ошибка авторизации! проверьте логин или пароль!';
+                        $errorLogin = 'ошибка авторизации! проверьте логин!';
+                        $errorPassword = 'ошибка авторизации! проверьте пароль!';
                         include_once 'View/StartPage.php';
                         //header("Location: index.php");
                         //exit;
@@ -82,7 +83,12 @@ class Controller{
 			include_once 'View/ErrorRegisterPage.php';//false register
 		}
 	}
-	public function Error404(){
+        
+        public static function SaveGender(){
+            $SaveGender = model::getSelectGender();
+        }
+
+        public function Error404(){
 		include_once 'View/Error.php';
 	}
 	

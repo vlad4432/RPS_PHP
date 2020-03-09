@@ -23,23 +23,34 @@ class model{
                                         $logIn = filter_input(INPUT_POST, 'login');
 					$email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
 					$password = filter_input(INPUT_POST, 'password');
+                                       // echo 'Пароль: '.$password;
+                                      // echo 'Хеш: '. password_hash($password);
 					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$logIn.'"';
-                                        //echo $sql;
+                                        echo $sql;
 					$db = new db();
 					$item = $db->getOne($sql);
                                        // echo '<pre>';
                                         //print_r($item);
                                         //echo '</pre>';
 					if($item!=null){
+                                                
 						$loginUsername = strtolower($_POST['login']);
 						$password = $_POST['password'];
-						if($loginUsername = $item['Login'] && password_verify($password, $item['Pass'])){
+                                                //echo 'Pass DataBase: '.$item['Pass'];
+                                               // echo 'Hash: '. password_hash($password,PASSWORD_DEFAULT);
+                                                //if($loginUsername = $item['Login'] && password_verify($password, $item['Pass'])){
+						if($loginUsername = $item['Login'] && (base64_encode($password) == $item['Pass'])){
+                                                    $logIn = true;
 							$_SESSION['sessionId'] = session_id();
 							$_SESSION['userId'] = $item['id'];
 							$_SESSION['name'] = $item['login'];
 							$_SESSION['status'] = $item['status'];
 						}
+                                                  else {
+                                                     $logIn = FALSE;
+                                                 }
 					}
+                                      
 				}
                                 //include_once 'View/answerRegister.php';
 			}
@@ -82,7 +93,8 @@ class model{
                         $name = $_POST['NameP'];//Имя человека
                         //echo ' хм.... ';
 			if(!mb_strlen($errorString)==0){
-				$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+				//$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                                $passwordHash = base64_encode($_POST['password']);
 				//$sql="INSERT INTO `user` ('idUser','NameU', 'E-psotU', 'Pass') VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$password')";
                                 $sql="INSERT INTO `user` (idUser,NameU,`E-psotU`,Pass, Login, idStatus) VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '1')";
 				//echo $sql;
@@ -106,6 +118,14 @@ class model{
 		return $controll;
 
 	}
+        public static function getSelectGender(){
+            $sql = "SELECT `GenderU` FROM `user`";
+            $db = new db();
+            $resultGender = $db->getAll($sql);
+            return $resultGender;
+            
+        }
+
         public static function getSelectStatus(){
             $sql = "SELECT * FROM `status`";
             $db = new db();

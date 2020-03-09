@@ -18,12 +18,20 @@ ob_start();
 <?php
 if (isset($errorLogin)){
     $a = $errorLogin;
-    if(!$errorLogin=''){
-    echo '<div>';
+    if(!$errorLogin='' && !$errorPassword=''){
+    echo '<div class="Error_login">';
     echo '<p>'.$a.'</p>';
    // var_dump($errorLogin);
     echo '</div>';   
 
+    }
+}
+if(isset($errorPassword)){
+    $b = $errorPassword;
+    if(!$errorPassword=''){
+    echo '<div class="Error_login">';
+    echo '<p>'.$b.'</p>';
+    echo '</div>';   
     }
 }
 
