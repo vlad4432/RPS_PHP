@@ -5,12 +5,13 @@ class model{
 	//login read form data, query in database, control data
 	//$test-true - ok login, false --no login
 	public static function getLoginUser(){
+                $logIn = FALSE;
 		if(isset($_SESSION['sessionId'])){
-			$logIn = true;
+			
                         //echo $logIn;
 		}
 		else{
-			$logIn = false;
+			//$logIn = false;
 			if(isset($_POST['send'])){
                             //echo 'Есть!';
 //                            echo '<pre>';
@@ -20,13 +21,13 @@ class model{
 //                            echo '</pre>';
 				if(isset($_POST['login']) && isset($_POST['password']) && $_POST['login']!="" && $_POST['password']!=""){
                                    // echo 'и тут есть!';
-                                        $logIn = filter_input(INPUT_POST, 'login');
+                                        $username = filter_input(INPUT_POST, 'login');
 					$email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
 					$password = filter_input(INPUT_POST, 'password');
                                        // echo 'Пароль: '.$password;
                                       // echo 'Хеш: '. password_hash($password);
-					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$logIn.'"';
-                                        echo $sql;
+					$sql = 'SELECT * FROM `user` WHERE `login` = "'.$username.'"';
+                                        //echo $sql;
 					$db = new db();
 					$item = $db->getOne($sql);
                                        // echo '<pre>';
@@ -41,6 +42,9 @@ class model{
                                                 //if($loginUsername = $item['Login'] && password_verify($password, $item['Pass'])){
 						if($loginUsername = $item['Login'] && (base64_encode($password) == $item['Pass'])){
                                                     $logIn = true;
+                                                    echo '<pre>';
+                                                    print_r($_SESSION);
+                                                    echo '</pre>';
 							$_SESSION['sessionId'] = session_id();
 							$_SESSION['userId'] = $item['id'];
 							$_SESSION['name'] = $item['login'];

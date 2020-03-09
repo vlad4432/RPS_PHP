@@ -5,7 +5,7 @@ ob_start();
 <title>Hello!</title>
 </head>
 <div class="block_slogan">
-    <p>&quot;Тут будет слоган когда мы его придумем :D&quot;</p>	
+    <p>&quot;Школа ролевых игр. Ваш успех – наша работа.&quot;</p>	
 </div>
 <form action='login' method='POST'>
 	<h1 class='heading'>Вход!</h1>
@@ -18,20 +18,12 @@ ob_start();
 <?php
 if (isset($errorLogin)){
     $a = $errorLogin;
-    if(!$errorLogin='' && !$errorPassword=''){
+    if(!$errorLogin=''){
     echo '<div class="Error_login">';
     echo '<p>'.$a.'</p>';
    // var_dump($errorLogin);
     echo '</div>';   
 
-    }
-}
-if(isset($errorPassword)){
-    $b = $errorPassword;
-    if(!$errorPassword=''){
-    echo '<div class="Error_login">';
-    echo '<p>'.$b.'</p>';
-    echo '</div>';   
     }
 }
 
