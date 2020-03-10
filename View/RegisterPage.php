@@ -11,7 +11,7 @@ ob_start();
                 <input type='text' name='NameP' placeholder='Введите ваше Имя' title="Тут должно быть строго только Имя" required="">
 			<input type='text' name='SuernameP' placeholder='Введите вашу Фамилию' title="Тут должно быть строго только Фамилию" required="">
                         <select name="Gender" title="Выбери пол" required="">
-                            <option>Не выбранно</option>
+                            <option>Выбери пол(Не выбранно)</option>
                             <option>М</option>
                             <option>Ж</option>
                         </select>
@@ -22,15 +22,17 @@ ob_start();
                        // print_r($result);
                         ?>
                         <select name="StatusSelect" title="Выбери статус" required="">
-                            <option>Не выбранно</option>
-                            <?php 
+                            <option>Выбери статус(Не выбранно)</option>
+                            <?php
                             //print_r($result);
                             foreach ($result as $res){
                                 echo '<option>'.$res['NameStatus'].'</option>';
+                                $idStatus = $res['idStatus'];
+                                
                             }
                             ?>
-                           
                         </select>
+                        <input type='text' name='idStatus' value="<?php echo $idStatus; ?>" hidden="">
 			<input type='text' name='login' placeholder='Введите ваш логин' title="Тут должен быть строго только лониг" required="">
 			<input type='password' name='password' placeholder='Введите ваш пароль' title="Тут должно быть строго только пароль" required="">
 			<input type='password' name='confirm' placeholder='Повторите ваш пароль' title="Тут должно быть строго только пароль" required=""> 

@@ -79,9 +79,9 @@ class model{
 		$controll=array(0=>false, 1=>'error');
 		if(isset($_POST['save'])){//Сохранение
                     
-                    echo '<pre>';
-                    print_r($_POST);
-                    echo '</pre>';
+                  //  echo '<pre>';
+                    //print_r($_POST);
+                   // echo '</pre>';
                     
 			$errorString = "";
 			$nameuser = $_POST['login'];//поле Логин
@@ -99,18 +99,22 @@ class model{
 				$errorString.="Пароли не совпадают!";
 			}//поле пароль
                         $name = $_POST['NameP'];//Имя человека
-                        $Surename = $_POST['SurenameP'];
-                        $Gender = $_POST['Geander'];
+                        $Surename = $_POST['SuernameP'];
+                        $Gender = $_POST['Gender'];
                         $Telephone = $_POST['Telephone'];
                         $Email = $_POST['email'];
                         $XPrp = $_POST['xprp'];
+                        $Status = $_POST['idStatus'];
+                        //echo '<pre>';
+                        //print_r($_POST);
+                       // echo '</pre>';
          
                         //echo ' хм.... ';
 			if(!mb_strlen($errorString)==0){
 				//$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                                 $passwordHash = base64_encode($_POST['password']);
 				//$sql="INSERT INTO `user` ('idUser','NameU', 'E-psotU', 'Pass') VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$password')";
-                                $sql="INSERT INTO `user` (idUser,NameU,`E-psotU`,Pass, Login, idStatus) VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '1')";
+                                $sql="INSERT INTO `user` (idUser,NameU,`E-psotU`,Pass, Login, idStatus) VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$Status')";
 				//echo $sql;
                                 $db = new db();
 				$item = $db->executeRun($sql);
@@ -141,7 +145,8 @@ class model{
         }
 
         public static function getSelectStatus(){
-            $sql = "SELECT * FROM `status`";
+            $sql = "SELECT * FROM `status` WHERE `NameStatus`!='Admin'";
+            //echo $sql;
             $db = new db();
            // $item = $db->executeRun($sql);
            $result = $db->getAll($sql);

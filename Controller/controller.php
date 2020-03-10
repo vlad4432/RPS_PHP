@@ -43,14 +43,23 @@ class Controller{
 	
 	public function LoginUser(){
 		$logIn = model::getLoginUser(); 
-                echo $logIn;
+              //  echo $logIn;
 //                $pass = model::getPassUser();
 //                echo $pass;
                // echo $login.'Работает';
                echo $logIn;
                 if($logIn){
+                    //echo $_SESSION['name'].'<br>';
+                    //echo '<pre>';
+                    //print_r($_SESSION);
+                    //echo '</pre>';
 		//if(!$logIn == '' && !$pass == ''){
-			include_once 'View/StartPupil.php';
+                    if($_SESSION['name']=='Admin'){
+                        //echo 'Это админ!';
+                        include_once 'ViewAdmin/StartAdmin.php';
+                    } else {
+                        include_once 'View/StartPupil.php';
+                    }
 		}else{
 			$_SESSION['errorString']= 'Неправильно введен пользователя или пароль!';
                         $content=ob_get_clean();
