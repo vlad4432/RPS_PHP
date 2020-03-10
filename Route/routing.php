@@ -22,6 +22,32 @@ elseif($uri == 'register_page'){
 elseif($uri == 'register_result'){
 	$response = Controller::register_result();
 }
+elseif ($uri == 'Add_Pupil') {
+    $response = Controller::AddPupil_Admin();
+}
+elseif ($uri == 'List_Pupil') {
+    $response = Controller::ListPupil();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Страница о школе
 elseif($uri == 'schoolAbout'){
 	$response = Controller::SchoolAbout();

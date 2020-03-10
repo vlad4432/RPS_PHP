@@ -40,8 +40,19 @@ class Controller{
 	public function Plan(){
 		include_once 'View/Plan.php';
 	}
-	
-	public function LoginUser(){
+        public function AddPupil_Admin(){
+            include_once 'ViewAdmin/AddListPupil.php';
+        }
+        public function ListPupil(){
+            include_once 'ViewAdmin/ListPupil.php';
+        }
+
+        
+
+
+
+
+        public function LoginUser(){
 		$logIn = model::getLoginUser(); 
               //  echo $logIn;
 //                $pass = model::getPassUser();
