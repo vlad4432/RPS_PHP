@@ -67,6 +67,10 @@ class Controller{
 		//if(!$logIn == '' && !$pass == ''){
                     if($_SESSION['name']=='Admin'){
                         //echo 'Это админ!';
+                        $arrayUser = model::getUsers();
+                        echo '<pre>';
+                        print_r($arrayUser);
+                        echo '</pre>';
                         include_once 'ViewAdmin/StartAdmin.php';
                     } else {
                         include_once 'View/StartPupil.php';

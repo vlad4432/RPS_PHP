@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 11:29 AM
+-- Generation Time: Mar 10, 2020 at 02:20 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -159,10 +159,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`idUser`, `Photo`, `NameU`, `SurnameU`, `GenderU`, `TelephoneU`, `E-psotU`, `Login`, `Pass`, `RPG_experience`, `idStatus`) VALUES
-(29, '', 'Vlad', '', '', 0, 'maljushitskivlad@gmail.com', 'vladosik', '$2y$10$vPgsczX2pWEb/aXZrQo/5.DiwBky', 0, 1),
-(30, '', 'Proverka', '', '', 0, 'maljushitskivlad@gmail.com', 'Proverka', '$2y$10$qeIR9piGo49XBhjU3iWGIOkIQtl3', 0, 1),
-(37, '', 'Admin', '', '', 0, 'maljushitskivlad@gmail.com', 'Admin', '$2y$10$GiFXYLxhzyrI6CeIKiN9Qu47cdhz', 0, 1),
-(38, '', 'Lol', '', '', 0, 'maljushitskivlad@gmail.com', 'lol', '$2y$10$kNqlZYRH7jvsag4iv/uOouHruGD/', 0, 1);
+(54, '', 'Admin', '', '', 0, 'maljushitskivlad@gmail.com', 'Admin', 'YWRtaW4=', 0, 1),
+(66, '', 'Vlad', '', '', 0, 'maljushitskivlad@gmail.com', 'Vlad', 'MTIzNA==', 0, 3),
+(67, '', 'Vlad', '', '', 0, 'maljushitskivlad@gmail.com', 'Vlad', 'MTExMQ==', 0, 3),
+(68, '', 'Lol', 'Ytr', '', 2147483647, 'maljushitskivlad@gmail.com', 'MTExMQ==', '2', 0, 3),
+(69, '', 'Lol', 'Ytr', '', 2147483647, 'maljushitskivlad@gmail.com', 'MTExMQ==', '2', 0, 3);
 
 --
 -- Indexes for dumped tables
@@ -288,7 +289,7 @@ ALTER TABLE `type_assessment`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idUser` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- Constraints for dumped tables

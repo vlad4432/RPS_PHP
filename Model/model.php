@@ -98,9 +98,10 @@ class model{
 			if($password!=$confirm){
 				$errorString.="Пароли не совпадают!";
 			}//поле пароль
+                        
                         $name = $_POST['NameP'];//Имя человека
                         $Surename = $_POST['SuernameP'];
-                        $Gender = $_POST['Gender'];
+                        $Gender = $_POST['GenderU'];
                         $Telephone = $_POST['Telephone'];
                         $Email = $_POST['email'];
                         $XPrp = $_POST['xprp'];
@@ -114,8 +115,8 @@ class model{
 				//$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                                 $passwordHash = base64_encode($_POST['password']);
 				//$sql="INSERT INTO `user` ('idUser','NameU', 'E-psotU', 'Pass') VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$password')";
-                                $sql="INSERT INTO `user` (idUser,NameU,`E-psotU`,Pass, Login, idStatus) VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$Status')";
-				//echo $sql;
+                                $sql="INSERT INTO `user` (idUser, NameU, SurnameU, `GenderU`, TelephoneU,`E-psotU`,Pass, Login, RPG_experience, idStatus) VALUES (NULL, '$name', '$Surename', '$Gender', '$Telephone', '$Email','$XPrp', '$passwordHash', '$nameuser', '$Status')";
+				echo $sql;
                                 $db = new db();
 				$item = $db->executeRun($sql);
                                // echo '<br>Ну такое'.$item;
@@ -152,6 +153,14 @@ class model{
            $result = $db->getAll($sql);
            return $result;
             //print_r($result);
+        }
+        public static function getUsers(){
+            $sql = "SELECT * FROM `user`";
+            //echo $sql;
+            $db = new db();
+           // $item = $db->executeRun($sql);
+           $result = $db->getAll($sql);
+           return $result;
         }
 	
 	
