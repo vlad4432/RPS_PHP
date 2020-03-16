@@ -106,6 +106,7 @@ class model{
                         $Email = $_POST['email'];
                         $XPrp = $_POST['xprp'];
                         $Status = $_POST['idStatus'];
+                        $StatusName = $_POST['NameStatus'];
                         //echo '<pre>';
                         //print_r($_POST);
                        // echo '</pre>';

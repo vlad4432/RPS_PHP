@@ -17,7 +17,7 @@ class controllerAdmin{
 	public static function loginAction(){
 		$login=false;
 		$login=modelAdmin::userAuth();
-		if($login==true){
+		if($login=='Admin'){
 			include_once "viewAdmin/startAdmin.php";
 		}else{
 			$_SESSION['errorString']= 'Неправельно емаил пользователя или пароль';

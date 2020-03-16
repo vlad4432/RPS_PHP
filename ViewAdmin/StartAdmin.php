@@ -5,7 +5,8 @@
 
 
 <h2>Админ панель!!</h2>
-<a href="./">Выйти!</a>
+<a href="./">Выйти!</a><br>
+<input type="file" name="" value="">
 <?php include "viewAdmin/templates/layout.php";?>
 <hr>
 <table border="1">
@@ -16,18 +17,26 @@
         <th>Пол</th>
         <th>Телефон</th>
         <th>Е-майл</th>
-        <th>Статус</th>
-        <th>Группа</th>
         <th>Логин</th>
         <th>Пароль</th>
+        <th>Взаимодействие</th>
     </tr>
-    <tr>
+    
        <?php 
-       foreach ($arrayUser as $user)
+       foreach ($arrayUser as $user){
+        echo '<tr>';
         echo '<td>'.$user['idUser'].'</td>';
         echo '<td>'.$user['NameU'].'</td>';
         echo '<td>'.$user['SurnameU'].'</td>';
+        echo '<td>'.$user['GenderU'].'</td>';
+        echo '<td>(+372)'.$user['TelephoneU'].'</td>';
+        echo '<td>'.$user['E-psotU'].'</td>';
+        echo '<td>'.$user['Login'].'</td>';
+        echo '<td>'.$user['Pass'].'</td>';
+        echo '<td><a href="Edit_Pupil">Редактировать</a>&brvbar;<a href="">Удалить</a></td>';
+       echo '</tr>'; 
+       }
         ?>  
-    </tr>
+    
 </table>
 

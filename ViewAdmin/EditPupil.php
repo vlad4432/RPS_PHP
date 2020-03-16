@@ -2,10 +2,10 @@
 ob_start();
 ?>
 
-<h1>Добавить пользователья!</h1>
+<h1>Редактирование пользователья!</h1>
 <form action='register_result' method='POST' class='register_form'>
 	<fieldset>
-		<legend><h1 class='heading'>Регистрация!</h1></legend>
+		<legend><h1 class='heading'>Изменение!</h1></legend>
                 <input type='text' name='NameP' placeholder='Введите ваше Имя' title="Тут должно быть строго только Имя" required="">
 			<input type='text' name='SuernameP' placeholder='Введите вашу Фамилию' title="Тут должно быть строго только Фамилию" required="">
                         <select name="Gender" title="Выбери пол" required="">

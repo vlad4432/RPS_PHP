@@ -28,6 +28,9 @@ elseif ($uri == 'Add_Pupil') {
 elseif ($uri == 'List_Pupil') {
     $response = Controller::ListPupil();
 }
+elseif ($uri == 'Edit_Pupil') {
+    $response = Controller::EditPupil();
+}
 
 
 

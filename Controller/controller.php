@@ -46,6 +46,9 @@ class Controller{
         public function ListPupil(){
             include_once 'ViewAdmin/ListPupil.php';
         }
+        public function EditPupil(){
+            include_once 'ViewAdmin/EditPupil.php';
+        }
 
         
 
