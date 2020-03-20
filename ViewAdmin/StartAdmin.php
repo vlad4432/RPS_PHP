@@ -19,21 +19,23 @@
         <th>Е-майл</th>
         <th>Логин</th>
         <th>Пароль</th>
+        <th>Опыт</th>
         <th>Взаимодействие</th>
     </tr>
     
        <?php 
        foreach ($arrayUser as $user){
         echo '<tr>';
-        echo '<td>'.$user['idUser'].'</td>';
-        echo '<td>'.$user['NameU'].'</td>';
-        echo '<td>'.$user['SurnameU'].'</td>';
-        echo '<td>'.$user['GenderU'].'</td>';
-        echo '<td>(+372)'.$user['TelephoneU'].'</td>';
-        echo '<td>'.$user['E-psotU'].'</td>';
-        echo '<td>'.$user['Login'].'</td>';
-        echo '<td>'.$user['Pass'].'</td>';
-        echo '<td><a href="Edit_Pupil">Редактировать</a>&brvbar;<a href="">Удалить</a></td>';
+            echo '<td>'.$user['idUser'].'</td>';
+            echo '<td>'.$user['NameU'].'</td>';
+            echo '<td>'.$user['SurnameU'].'</td>';
+            echo '<td>'.$user['GenderU'].'</td>';
+            echo '<td>(+372)'.$user['TelephoneU'].'</td>';
+            echo '<td>'.$user['E-psotU'].'</td>';
+            echo '<td>'.$user['login'].'</td>';
+            echo '<td>'.$user['password'].'</td>';
+            echo '<td>'.$user['RPG_experience'].'</td>';
+            echo '<td><a href="Edit_Pupil">Редактировать</a>&brvbar;<a href="">Удалить</a></td>';
        echo '</tr>'; 
        }
         ?>  

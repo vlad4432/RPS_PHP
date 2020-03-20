@@ -101,22 +101,24 @@ class model{
                         
                         $name = $_POST['NameP'];//Имя человека
                         $Surename = $_POST['SuernameP'];
-                        $Gender = $_POST['GenderU'];
+                        $Gender = $_POST['Gender'];
                         $Telephone = $_POST['Telephone'];
                         $Email = $_POST['email'];
                         $XPrp = $_POST['xprp'];
+                        //$password = $_POST['Pass'];
+                        $password = $_POST['password'];
                         $Status = $_POST['idStatus'];
-                        $StatusName = $_POST['NameStatus'];
-                        //echo '<pre>';
-                        //print_r($_POST);
-                       // echo '</pre>';
+                        $Login = $_POST['login'];
+                        echo '<pre>';
+                        print_r($_POST);
+                        echo '</pre>';
          
                         //echo ' хм.... ';
 			if(!mb_strlen($errorString)==0){
 				//$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                                 $passwordHash = base64_encode($_POST['password']);
 				//$sql="INSERT INTO `user` ('idUser','NameU', 'E-psotU', 'Pass') VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$password')";
-                                $sql="INSERT INTO `user` (idUser, NameU, SurnameU, `GenderU`, TelephoneU,`E-psotU`,Pass, Login, RPG_experience, idStatus) VALUES (NULL, '$name', '$Surename', '$Gender', '$Telephone', '$Email','$XPrp', '$passwordHash', '$nameuser', '$Status')";
+                                $sql="INSERT INTO `user` (idUser, NameU, SurnameU, `GenderU`, TelephoneU,`E-psotU`,Pass, Login, RPG_experience, idStatus) VALUES (NULL, '$name', '$Surename', '$Gender', '$Telephone', '$Email', '$passwordHash', '$Login', '$XPrp', '$Status')";
 				echo $sql;
                                 $db = new db();
 				$item = $db->executeRun($sql);
