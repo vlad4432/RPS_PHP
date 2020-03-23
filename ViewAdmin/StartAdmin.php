@@ -2,13 +2,9 @@
 <!-- Заголовок title -->
 <?php ob_start() ?>
 <?php $content = ob_get_clean(); ?>
-
-
-<h2>Админ панель!!</h2>
-<a href="./">Выйти!</a><br>
-<input type="file" name="" value="">
 <?php include "viewAdmin/templates/layout.php";?>
 <hr>
+<a href="Add_Pupil">Добавить пользователья</a>
 <table border="1">
     <tr>
         <th>Ид</th>
@@ -32,10 +28,10 @@
             echo '<td>'.$user['GenderU'].'</td>';
             echo '<td>(+372)'.$user['TelephoneU'].'</td>';
             echo '<td>'.$user['E-psotU'].'</td>';
-            echo '<td>'.$user['login'].'</td>';
-            echo '<td>'.$user['password'].'</td>';
+            echo '<td>'.$user['Login'].'</td>';
+            echo '<td>'.$user['pass'].'</td>';
             echo '<td>'.$user['RPG_experience'].'</td>';
-            echo '<td><a href="Edit_Pupil">Редактировать</a>&brvbar;<a href="">Удалить</a></td>';
+            echo '<td><a href="Edit_Pupil?u_id='.$user['idUser'].'?u_n='.$user['NameU'].'">Редактировать</a>&brvbar;<a href="">Удалить</a></td>';
        echo '</tr>'; 
        }
         ?>  

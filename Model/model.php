@@ -106,9 +106,9 @@ class model{
                         $Email = $_POST['email'];
                         $XPrp = $_POST['xprp'];
                         //$password = $_POST['Pass'];
-                        $password = $_POST['password'];
+                        $password = $_POST['Pass'];
                         $Status = $_POST['idStatus'];
-                        $Login = $_POST['login'];
+                        $Login = $_POST['Login]'];
                         echo '<pre>';
                         print_r($_POST);
                         echo '</pre>';
@@ -164,6 +164,12 @@ class model{
            // $item = $db->executeRun($sql);
            $result = $db->getAll($sql);
            return $result;
+        }
+        public static function getUser($UserData ){
+            $sql = "SELECT * FROM `user` where `idUser`= '$UserData'";
+            $db = new db();
+            $result = $db->getOne($sql);
+            return $result;
         }
 	
 	

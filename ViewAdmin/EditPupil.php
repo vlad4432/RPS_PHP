@@ -1,5 +1,8 @@
 <?php
 ob_start();
+echo '<pre>';
+print_r($UserData);
+echo '</pre>';
 ?>
 
 <h1>Редактирование пользователья!</h1>

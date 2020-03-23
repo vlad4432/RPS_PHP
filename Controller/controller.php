@@ -47,6 +47,9 @@ class Controller{
             include_once 'ViewAdmin/ListPupil.php';
         }
         public function EditPupil(){
+            if(isset($_GET['u_id'])){
+                $UserData = model::getUser($_GET['u_id']);
+            }
             include_once 'ViewAdmin/EditPupil.php';
         }
 
@@ -111,6 +114,8 @@ class Controller{
 		}
 	}
         
+
+
         public static function SaveGender(){
             $SaveGender = model::getSelectGender();
         }
