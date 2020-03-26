@@ -44,13 +44,17 @@ class Controller{
             include_once 'ViewAdmin/AddListPupil.php';
         }
         public function ListPupil(){
-            include_once 'ViewAdmin/ListPupil.php';
+            include_once 'ViewAdmin/StartAdmin.php';
         }
         public function EditPupil(){
             if(isset($_GET['u_id'])){
                 $UserData = model::getUser($_GET['u_id']);
             }
             include_once 'ViewAdmin/EditPupil.php';
+        }
+        /*Группы*/
+        public function ListGroupAdmin(){
+            include_once 'ViewAdmin/Group/ListGroupAdminLayout.php';
         }
 
         

@@ -108,7 +108,7 @@ class model{
                         //$password = $_POST['Pass'];
                         $password = $_POST['Pass'];
                         $Status = $_POST['idStatus'];
-                        $Login = $_POST['Login]'];
+                        $Login = $_POST['login'];
                         echo '<pre>';
                         print_r($_POST);
                         echo '</pre>';
@@ -138,14 +138,12 @@ class model{
 			$controll = array(0=>false, 1=>$errorString);
 		}
 		return $controll;
-
 	}
         public static function getSelectGender(){
             $sql = "SELECT `GenderU` FROM `user`";
             $db = new db();
             $resultGender = $db->getAll($sql);
             return $resultGender;
-            
         }
 
         public static function getSelectStatus(){
@@ -171,9 +169,13 @@ class model{
             $result = $db->getOne($sql);
             return $result;
         }
+        /*Попытка сделать удаление*/
+        public static function getDeleteUser(){
+            if(isset($_POST['deleate'])){
+                $DeleatePupil = $_POST['DealeteChechbox'];
+        }
 	
 	
 	
 }
-
-?>
+}

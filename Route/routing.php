@@ -32,6 +32,14 @@ elseif ($uri == 'Edit_Pupil') {
     $response = Controller::EditPupil();
 }
 
+/*Группы*/
+elseif ($uri == 'List_Group') {
+    $response = Controller::ListGroupAdmin();
+}
+elseif ($uri == 'Add_Group') {
+    $response = Controller::AddGroupAdmin();
+}
+
 
 
 

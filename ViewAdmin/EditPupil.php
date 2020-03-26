@@ -4,7 +4,9 @@ echo '<pre>';
 print_r($UserData);
 echo '</pre>';
 ?>
-
+<a href='List_Pupil' class='back'><div class='button_login'>
+<p class='back_p'>Назад</p>
+</div></a>
 <h1>Редактирование пользователья!</h1>
 <form action='register_result' method='POST' class='register_form'>
 	<fieldset>
