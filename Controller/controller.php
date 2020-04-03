@@ -40,24 +40,36 @@ class Controller{
 	public function Plan(){
 		include_once 'View/Plan.php';
 	}
+        
+        
+        
+       //Добовление пользователья
         public function AddPupil_Admin(){
-            include_once 'ViewAdmin/AddListPupil.php';
+            include_once 'ViewAdmin/Pupil/AddListPupil.php';
         }
+        //Список пользователей
         public function ListPupil(){
             include_once 'ViewAdmin/StartAdmin.php';
         }
+        //Редактирование пользователья
         public function EditPupil(){
             if(isset($_GET['u_id'])){
                 $UserData = model::getUser($_GET['u_id']);
             }
-            include_once 'ViewAdmin/EditPupil.php';
+            include_once 'ViewAdmin/Pupil/EditPupil.php';
         }
-        /*Группы*/
+        /*Список групп*/
         public function ListGroupAdmin(){
-            include_once 'ViewAdmin/Group/ListGroupAdminLayout.php';
+            include_once 'ViewAdmin/Group/ListGroup.php';
+        }
+        /*Добавление группы*/
+        public function AddGroupAdmin(){
+            include_once 'ViewAdmin/Group/AddListGroup.php';
         }
 
         
+
+
 
 
 
@@ -75,15 +87,22 @@ class Controller{
                     //print_r($_SESSION);
                     //echo '</pre>';
 		//if(!$logIn == '' && !$pass == ''){
-                    if($_SESSION['name']=='Admin'){
+                    if($_SESSION['status']==1){
                         //echo 'Это админ!';
                         $arrayUser = model::getUsers();
                         echo '<pre>';
                         print_r($arrayUser);
                         echo '</pre>';
-                        include_once 'ViewAdmin/StartAdmin.php';
-                    } else {
-                        include_once 'View/StartPupil.php';
+                        include_once 'ViewAdmin/WelcomAdmin.php';
+                    } 
+                    
+                    if($_SESSION['status']==2){
+                        $arrayTeather = model::getTeather();
+                        include_once 'ViewTeather/WelcomTeather.php';
+                    }
+                    if($_SESSION['status']==3) {
+                        $arrayPupil = model::getPupils();
+                        include_once 'ViewPupil/WelcomPupil.php';
                     }
 		}else{
 			$_SESSION['errorString']= 'Неправильно введен пользователя или пароль!';
@@ -97,14 +116,11 @@ class Controller{
 		}
 	}
 	
-	
 	//register form
 	public function register_page(){
 		include_once 'View/RegisterPage.php';
 		
 	}
-	
-	
 	
 	public function register_result(){
             echo 'Маршрут есть!';
@@ -118,12 +134,25 @@ class Controller{
 		}
 	}
         
-
+         public function admin_page(){
+		$register_result=model::getupdate_user();
+                $arrayUser = model::getUsers();
+                //print_r($register_result);
+		include_once 'ViewAdmin/StartAdmin.php';//ok register	
+	}
 
         public static function SaveGender(){
             $SaveGender = model::getSelectGender();
         }
-
+        
+        public function Home_Pupil(){
+            
+             include_once 'ViewPupil/StartPupil.php';
+        }
+        
+        
+        
+        
         public function Error404(){
 		include_once 'View/Error.php';
 	}

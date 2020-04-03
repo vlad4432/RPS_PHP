@@ -17,7 +17,6 @@
 	
 	?>
 	</div>
-<footer id="footer">Подвал</footer>
 
 </body>
 </html>

@@ -12,10 +12,11 @@
 
 <div class="NavAdmin">
     <h2>Меню Админа</h2>
-    <a href="List_Pupil">Список пользователей</a><br>
+    <a href="register_result_admin">Список пользователей</a><br>
     <a href="List_Group">Список групп</a><br>
-    <a href="">Список предметов</a><br>
-    <a href="">Список оценок</a><br>
+    <a href="List_Subject">Список предметов</a><br>
+    <a href="List_Plots">Список сюжетов</a><br>
+    <a href="List_Grades">Список оценок</a><br>
 </div>
 
 <div class="Content_Admin">

@@ -92,8 +92,8 @@ class model{
 			}//Проверка поля почты
 			$password = $_POST['password'];//поле пароль
 			$confirm = $_POST['confirm'];//повтор паролья
-			if(!$password || !$confirm || mb_strlen($password) <6 ){
-				$errorString.="Пароль должен быть больше 6 символов<br />";
+			if(!$password || !$confirm || mb_strlen($password) <4 ){
+				$errorString.="Пароль должен быть больше 4 символов<br />";
 			}//поле пароль
 			if($password!=$confirm){
 				$errorString.="Пароли не совпадают!";
@@ -106,15 +106,16 @@ class model{
                         $Email = $_POST['email'];
                         $XPrp = $_POST['xprp'];
                         //$password = $_POST['Pass'];
-                        $password = $_POST['Pass'];
+                        $password = $_POST['password'];
                         $Status = $_POST['idStatus'];
                         $Login = $_POST['login'];
                         echo '<pre>';
                         print_r($_POST);
                         echo '</pre>';
          
-                        //echo ' хм.... ';
-			if(!mb_strlen($errorString)==0){
+                        
+			if(mb_strlen($errorString)==0){
+                            echo ' хм.... ';
 				//$passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                                 $passwordHash = base64_encode($_POST['password']);
 				//$sql="INSERT INTO `user` ('idUser','NameU', 'E-psotU', 'Pass') VALUES (NULL, '$name', '$email','$passwordHash', '$nameuser', '$password')";
@@ -130,7 +131,10 @@ class model{
 						$controll = array(0=>false, 1=>'error');
 					}
 			} else {
-                            echo 'Что то не так!';
+                            echo 'Что то не так!<br>';
+                            $_SESSION['errorString']= 'ошибки в регистрации';
+                        $errorStrings = $errorString;
+                        include_once 'View/ErrorRegisterPage.php';//false register
                         }
 			
 		}
@@ -139,15 +143,17 @@ class model{
 		}
 		return $controll;
 	}
+        //Выбор пола
         public static function getSelectGender(){
             $sql = "SELECT `GenderU` FROM `user`";
             $db = new db();
             $resultGender = $db->getAll($sql);
             return $resultGender;
         }
-
+        //Выбор статуса(без админа)
         public static function getSelectStatus(){
-            $sql = "SELECT * FROM `status` WHERE `NameStatus`!='Admin'";
+            $sql = "SELECT * FROM `status` WHERE `NameStatus`!='Admin' ";
+           // $sql = "SELECT `Pupil` FROM `status`";
             //echo $sql;
             $db = new db();
            // $item = $db->executeRun($sql);
@@ -155,27 +161,82 @@ class model{
            return $result;
             //print_r($result);
         }
+        //Все статусы
+        public static function getAllStatuses(){
+            $sql = "SELECT * FROM `status`";
+            //echo $sql;
+            $db = new db();
+           // $item = $db->executeRun($sql);
+           $result = $db->getAll($sql);
+           return $result;
+            //print_r($result);
+        }
+        //Все пользовательи
         public static function getUsers(){
-            $sql = "SELECT * FROM `user`";
+            //$sql = "SELECT * FROM `user`";
+            $sql="SELECT user.*, status.NameStatus FROM `user`, status WHERE user.idStatus=status.idStatus";
             //echo $sql;
             $db = new db();
            // $item = $db->executeRun($sql);
            $result = $db->getAll($sql);
            return $result;
         }
+        //Выбор пользователья по данным
         public static function getUser($UserData ){
             $sql = "SELECT * FROM `user` where `idUser`= '$UserData'";
             $db = new db();
             $result = $db->getOne($sql);
             return $result;
         }
+        
+        //Редактирование пользователья
+        public static function getupdate_user(){
+            echo '<pre>';
+            print_r($_POST);
+            echo '</pre>';
+            if (isset($_POST['edit'])){
+            $new_name = $_POST['NameP'];
+            $new_surname = $_POST['SuernameP'];
+            $new_gender = $_POST['Gender'];
+            $new_telephone = $_POST['Telephone'];
+            $new_epost = $_POST['email'];
+            $new_login = $_POST['login'];
+            $new_pass = $_POST['password'];
+            $new_exrp = $_POST['xprp'];
+            $new_status = $_POST['StatusSelect'];
+            $sql = "UPDATE `user` set nameU = '".$new_name." set surnameU ='".$new_surname."set GeanderU='".$new_gender."set TelephoneU='".$new_telephone."' Where idUser = $idUser";
+            }
+            //echo $sql;
+            $db = new db();
+           // $item = $db->executeRun($sql);
+           $result = $db->getOne($sql);
+           return $result;
+        }
+       //Добавление группы
+        public static function getAddGroup(){
+            $controll=array(0=>false, 1=>'error');
+		if(isset($_POST['savegroup'])){//Сохранение  
+                  //  echo '<pre>';
+                    //print_r($_POST);
+                   // echo '</pre>';
+			$errorString = "";
+			$namegroup = $_POST['namegroup'];
+                }       
+        }
         /*Попытка сделать удаление*/
         public static function getDeleteUser(){
             if(isset($_POST['deleate'])){
                 $DeleatePupil = $_POST['DealeteChechbox'];
-        }
-	
-	
-	
-}
+            }
+	}
+        
+        
+        //УЧЕНИК
+         public static function getPupils(){
+             
+         }
+         //Учитель
+         public static function getTeather(){
+             
+         }
 }

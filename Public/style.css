@@ -147,7 +147,6 @@ footer{
 .icons_Home{
 	border:1px solid black;
 	width:20%;
-	height:;
 	margin-top:2%;
 }
 .Teathers{
@@ -281,6 +280,14 @@ background-color:#AB978E;
  text-align:center;
     margin-top:2%;
 }
+.error_reg{
+    background-color:#AB978E;
+    border:1px solid black; 
+     width:50%;  
+   margin-left:25%; 
+ text-align:center;
+    margin-top:2%;
+}
 .PanelAdmin{
     margin-left:5%;
     border:1px solid gray;
@@ -288,10 +295,12 @@ background-color:#AB978E;
     float:left;
 }
 .Art_Profile{
-    border: 1px solid red;
+     border: 1px solid red;
     width: 95%;
-    margin-left: 
+    /*margin-left: ;*/
 }
+   
+
 .NavAdmin{
     width: 40%;
    margin-left: 40%;
@@ -313,14 +322,26 @@ table{
     margin-right:1.5%;
     margin-left:1.5%;
 }
-tr{
-    
+th{
+    background-color: #AB978E;
+}
+td{
+    background-color:rgba(209, 201, 198, 0.53);
+    text-align:center;
 }
 .AdminHerf{
     
 }
-
-
+.Search{
+    border:1px solid red;
+    width:75%;
+    margin-left: 13%;
+}
+.SearchFrom{
+    border: 1px solid black;
+    width: 68%;
+    margin-left:15%;
+}
 #footer{
      text-align:center;
 	width:100%;

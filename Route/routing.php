@@ -22,20 +22,30 @@ elseif($uri == 'register_page'){
 elseif($uri == 'register_result'){
 	$response = Controller::register_result();
 }
+//Добовление пользователья
 elseif ($uri == 'Add_Pupil') {
     $response = Controller::AddPupil_Admin();
 }
+//Список пользователей
 elseif ($uri == 'List_Pupil') {
     $response = Controller::ListPupil();
 }
+//Редактирование пользователья
 elseif ($uri == 'Edit_Pupil') {
     $response = Controller::EditPupil();
 }
+//register_result_admin
+elseif($uri == 'register_result_admin'){
+	$response = Controller::admin_page();
+}
 
-/*Группы*/
+
+
+/*Список групп*/
 elseif ($uri == 'List_Group') {
     $response = Controller::ListGroupAdmin();
 }
+/*Добовление группы*/
 elseif ($uri == 'Add_Group') {
     $response = Controller::AddGroupAdmin();
 }
@@ -43,7 +53,12 @@ elseif ($uri == 'Add_Group') {
 
 
 
-
+    //УЧЕНИК
+//Главная
+elseif ($uri == 'Home_Page') {
+    $response = Controller::Home_Pupil();
+    
+}
 
 
 

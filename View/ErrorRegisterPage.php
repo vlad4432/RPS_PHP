@@ -2,7 +2,18 @@
 ob_start();
 ?>
 <?php
-echo 'Ошибки в регистрации!';
+if (isset($errorStrings)){
+    $c = $errorStrings;
+    if(!$errorStrings=''){
+    echo '<div class="error_reg">';
+    echo '<h1>Ошибки в регистрации!</h1>';
+    echo '<p>'.$c.'</p>';
+    echo '<hr>';
+    echo '<a href="register_page">Попробовать снова!</a>';
+    echo '</div>';   
+
+    }
+}
 ?>
 
 

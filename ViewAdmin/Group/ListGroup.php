@@ -7,8 +7,8 @@
 
 <div class="container_block">
     <div class="nav_table">
-        <a href="Add_Group" class="AdminHerf">Добавить предмет</a>
-        <a href="deleate" class="AdminHerf">Удалить предмет</a>
+        <a href="Add_Group" class="AdminHerf">Добавить группу</a>
+        <a href="deleate" class="AdminHerf">Удалить группу</a>
     </div>
     
     <div class="Search">
@@ -54,4 +54,6 @@
     
     
 </div>
+
+
 
